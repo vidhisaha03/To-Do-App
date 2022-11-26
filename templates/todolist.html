@@ -43,18 +43,35 @@
                     {% csrf_token %}
 
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-7">
                             <div class="form-group mx-sm-3 mb-2">
                                 <label for="content" class="sr-only"></label>
                                 <input type="text" class="form-control" name="content" placeholder="Research">
                               </div>
                         </div>
+                       
+                        <div class="col-8">
+                            <div class="form-group mx-sm-3 mb-2">
+                                <form action="/action_page.php">
+                                    <label for="priority">Importance</label>
+                                    <select name="priority" id="priority">
+                                      <option value="Urgent">Urgent</option>
+                                      <option value="General">General</option>
+                                      <option value="Occasional">Occasional</option>
+                                    </select>
+                                    <br><br>
+                                    </form>
+                                
+                              </div>
+                       
                         <div class="col-4" style="margin-top: 25px;">
                             <button type="submit" class="btn btn-success btn-rounded">ADD TO DO ITEMS</button>
                         </div>
                     </div>
                     
-                  </form>
+                </form>
+                    
+                  
             </div>
             {% for i in all_items %} 
             <div class="row">
@@ -62,7 +79,17 @@
                 <div class="col-6">
                     <div class="card  text-white bg-dark mb-3">
                         <div class="card-body">
+                            {{i.priority}} 
+
+
+                        </div>
+                        <div class="card-body">
                             {{i.content}}
+
+                        </div>
+                        <div class="card-body">
+                            {{i.date1}}
+
                         </div>
                       </div>
                 </div>

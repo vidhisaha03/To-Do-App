@@ -16,6 +16,9 @@ def addTodoView(request):
     # x = request.POST.get('todotext')
     new_item = TodoListItem()
     new_item.content = request.POST.get('content')
+    new_item.date1 = request.POST.get('date1')
+    new_item.priority = request.POST.get('priority')
+    
     new_item.save()
     return HttpResponseRedirect('/todo/') 
 
